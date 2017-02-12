@@ -565,6 +565,7 @@ var ApiTestComponent = (function () {
     };
     ApiTestComponent.prototype.callApi = function (apiObject, apiAction, apiParam) {
         var _this = this;
+        this.apiResponse = '';
         if (typeof apiObject !== 'undefined' && apiObject && apiObject !== '' &&
             typeof apiAction !== 'undefined' && apiAction && apiAction !== '' &&
             typeof apiParam !== 'undefined' && apiParam && apiParam !== '') {
@@ -599,7 +600,7 @@ module.exports = ""
 /***/ 695:
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  <label>\n    Objeto a llamar\n  </label>\n  <input #apiObject id=\"api-object\" />\n  <label>\n    Acción a llamar\n  </label>\n  <input #apiAction id=\"api-action\" />\n  <label>\n    Parametro de llamada\n  </label>\n  <input #apiParam id=\"api-param\" />\n  <button style=\"background-color:#336699; color:#FFFFFF;\" (click)=\"callApi(apiObject.value,apiAction.value,apiParam.value)\">\n    <b>\n      LLamar api\n    </b>\n  </button>\n</p>\n<div>\n  <label>\n    Resspusta de la api\n  </label>\n  <b *ngIf=\"apiResponse\">\n      {{apiResponse}}\n  </b>\n<div>\n"
+module.exports = "<p>\n  <label>\n    Objeto a llamar\n  </label>\n  <input #apiObject id=\"api-object\" />\n  <label>\n    Acción a llamar\n  </label>\n  <input #apiAction id=\"api-action\" />\n  <label>\n    Parametro de llamada\n  </label>\n  <input #apiParam id=\"api-param\" />\n  <button style=\"background-color:#336699; color:#FFFFFF;\" (click)=\"callApi(apiObject.value,apiAction.value,apiParam.value)\">\n    <b>\n      LLamar api\n    </b>\n  </button>\n</p>\n<div>\n  <label *ngIf=\"apiResponse\">\n    Respuesta de api:\n  </label>\n  <b *ngIf=\"apiResponse\">\n      {{apiResponse}}\n  </b>\n<div>\n"
 
 /***/ }),
 
@@ -643,7 +644,6 @@ var ApiCallerService = (function () {
     };
     ApiCallerService.prototype.extractData = function (res) {
         var body = res.json();
-        console.log(body);
         return body.data || body || {};
     };
     ApiCallerService.prototype.handleError = function (error) {
