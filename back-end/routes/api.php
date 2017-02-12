@@ -14,7 +14,8 @@ use Illuminate\Http\Request;
 */
 
 
-Route::get('aaa',function(){
+Route::get('{object}/{action}/{param}',function($object,$action,$param){
+    return json_encode(["object"=>$object,"action"=>$action,"param"=>$param,"status"=>"success"]);
      return "ok";
 });
 
