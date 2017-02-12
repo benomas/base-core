@@ -1,29 +1,20 @@
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    RewriteRule ^$ front-end/ [L]
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^front-end/(.*)$ front-end/$1 [L]
+    #file request to backend
+        RewriteRule ^file/(.*)$ back-end/public/files/$1 [L,NS]
 
+    #api request to backend
+        RewriteRule ^api/(.*)$ back-end/public/api/$1 [L,NS]
 
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^front-end/(.*)$ front-end/$1 [L]
+    #empty request to front-end  (home)
+        RewriteRule ^$ front-end/ [L,NS]
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^api/(.*)$ back-end/public/api/$1 [L]
+    #empty front request
+        RewriteRule ^front-end/(.*)$ front-end/$1 [L,NS]
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ front-end/$1 [L]
+    RewriteRule ^(\w|\d|-|_)+$ front-end/ [L,NS]
 
+    RewriteRule ^(.+?\..*)$ front-end/$1 [L,NS]
 
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^(.*)$ front-end/$1 [L]
-
-    #RewriteRule ^$ front-end/app/dist/index.html [L]
-    #RewriteRule ^web/(.*)$ back-end/public/$1 [L]
 </IfModule>
