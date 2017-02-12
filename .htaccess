@@ -10,11 +10,13 @@
     #empty request to front-end  (home)
         RewriteRule ^$ front-end/ [L,NS]
 
-    #empty front request
+    #file request to front-end
         RewriteRule ^front-end/(.*)$ front-end/$1 [L,NS]
 
-    RewriteRule ^(\w|\d|-|_)+$ front-end/ [L,NS]
+    #route request to front-end
+        RewriteRule ^(\w|\d|-|_)+$ front-end/ [L,NS]
 
-    RewriteRule ^(.+?\..*)$ front-end/$1 [L,NS]
+    #file request to front-end
+        RewriteRule ^(.+?\..*)$ front-end/$1 [L,NS]
 
 </IfModule>
