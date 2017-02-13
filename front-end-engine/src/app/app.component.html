@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+    <nav>
+      <a routerLink="{{level.route}}" routerLinkActive="active"
+        *ngFor="let level of levels"
+      >
+        {{level.label}}
+      </a>
+    </nav>
+<router-outlet></router-outlet>

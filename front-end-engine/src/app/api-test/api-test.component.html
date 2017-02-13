@@ -1,0 +1,27 @@
+<p>
+  <label>
+    Objeto a llamar
+  </label>
+  <input #apiObject id="api-object" />
+  <label>
+    Acción a llamar
+  </label>
+  <input #apiAction id="api-action" />
+  <label>
+    Parametro de llamada
+  </label>
+  <input #apiParam id="api-param" />
+  <button style="background-color:#336699; color:#FFFFFF;" (click)="callApi(apiObject.value,apiAction.value,apiParam.value)">
+    <b>
+      LLamar api
+    </b>
+  </button>
+</p>
+<div>
+  <label *ngIf="apiResponse">
+    Respuesta de api:
+  </label>
+  <b *ngIf="apiResponse">
+      {{apiResponse}}
+  </b>
+<div>
