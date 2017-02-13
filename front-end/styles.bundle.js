@@ -1,15 +1,15 @@
 webpackJsonp([2,4],{
 
-/***/ 426:
+/***/ 430:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(640);
+var content = __webpack_require__(647);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(679)(content, {});
+var update = __webpack_require__(689)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -27,10 +27,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 640:
+/***/ 647:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(641)();
+exports = module.exports = __webpack_require__(648)();
 // imports
 
 
@@ -42,7 +42,7 @@ exports.push([module.i, "/* Master Styles */\nh1 {\n  color: #369;\n  font-famil
 
 /***/ }),
 
-/***/ 641:
+/***/ 648:
 /***/ (function(module, exports) {
 
 /*
@@ -99,7 +99,7 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 679:
+/***/ 689:
 /***/ (function(module, exports) {
 
 /*
@@ -352,13 +352,13 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 683:
+/***/ 693:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(426);
+module.exports = __webpack_require__(430);
 
 
 /***/ })
 
-},[683]);
+},[693]);
 //# sourceMappingURL=styles.bundle.map

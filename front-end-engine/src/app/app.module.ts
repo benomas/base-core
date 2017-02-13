@@ -9,7 +9,6 @@ import { FrontRoutingModule } from './front-routing/front-routing.module';
 import { AppComponent } from './app.component';
 import { LaravelComponent } from './laravel/laravel.component';
 import { AngularComponent } from './angular/angular.component';
-import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ApiTestComponent } from './api-test/api-test.component';
 
@@ -18,8 +17,6 @@ import { ApiTestComponent } from './api-test/api-test.component';
     AppComponent,
     LaravelComponent,
     AngularComponent,
-    NotFoundComponentComponent,
-    NotFoundComponentComponent,
     NotFoundComponent,
     ApiTestComponent
   ],
