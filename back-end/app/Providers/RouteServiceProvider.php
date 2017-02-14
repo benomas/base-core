@@ -67,9 +67,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
+        //hack for work relative to path
+        if(\Request::segment(1)==="base-core" && \Request::segment(2)==='api'){
+            Route::prefix('base-core/api')
+                 ->middleware('api')
+                 ->namespace($this->namespace)
+                 ->group(base_path('routes/api.php'));
+        }
         Route::prefix('/api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+                 ->middleware('api')
+                 ->namespace($this->namespace)
+                 ->group(base_path('routes/api.php'));
     }
 }
