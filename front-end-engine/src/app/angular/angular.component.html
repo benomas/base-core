@@ -1,79 +1,64 @@
-<p>
-    Vista de ejemplo con información de Angular 2.4
-</p>
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Id:
-    </label>
-    <b>
-      {{angularInstance.id}}
-    </b>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Nombre:
-    </label>
-    <b>
-      {{angularInstance.name}}
-    </b>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Descripción:
-    </label>
-    <b>
-      {{angularInstance.description}}
-    </b>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Estatus:
-    </label>
-    <b>
-      {{angularInstance.status}}
-    </b>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Tipo:
-    </label>
-    <b>
-      {{angularInstance.type}}
-    </b>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Extensión:
-    </label>
-    <b>
-      {{angularInstance.ext}}
-    </b>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Propiedad 1:
-    </label>
-    <b>
-      {{angularInstance.angularProperty1}}
-    </b>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Propiedad 2:
-    </label>
-    <b>
-      {{angularInstance.angularProperty2}}
-    </b>
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
-    <label>
-      Propiedad 3:
-    </label>
-    <b>
-      {{angularInstance.angularProperty3}}
-    </b>
+<div class="card" style="width: 30rem;">
+  <img class="card-img-top rounded mx-auto d-block" [src]="angularInstance.sourceUrl" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title">Vista de ejemplo con información de Angular 2.4</h4>
+     <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+          Id:
+        <b>
+          {{angularInstance.id}}
+        </b>
+      </li>
+      <li class="list-group-item">
+          Nombre:
+        <b>
+          {{angularInstance.name}}
+        </b>
+      </li>
+      <li class="list-group-item">
+          Descripción:
+        <b>
+          {{angularInstance.description}}
+        </b>
+      </li>
+      <li class="list-group-item">
+          Estatus:
+        <b>
+          {{angularInstance.status}}
+        </b>
+      </li>
+      <li class="list-group-item">
+          Tipo:
+        <b>
+          {{angularInstance.type}}
+        </b>
+      </li>
+      <li class="list-group-item">
+          Extensión:
+        <b>
+          {{angularInstance.ext}}
+        </b>
+      </li>
+      <li class="list-group-item">
+          Propiedad 1:
+        <b>
+          {{angularInstance.angularProperty1}}
+        </b>
+      </li>
+      <li class="list-group-item">
+          Propiedad 2:
+        <b>
+          {{angularInstance.angularProperty2}}
+        </b>
+      </li>
+      <li class="list-group-item">
+          Propiedad 3:
+        <b>
+          {{angularInstance.angularProperty3}}
+        </b>
+      </li>
+    </ul>
   </div>
 </div>
-<img [src]="angularInstance.sourceUrl">
+
 

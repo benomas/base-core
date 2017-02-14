@@ -1,9 +1,11 @@
-<h1>{{title}}</h1>
-    <nav>
-      <a routerLink="{{level.route}}" routerLinkActive="active"
-        *ngFor="let level of levels"
-      >
-        {{level.label}}
-      </a>
-    </nav>
-<router-outlet></router-outlet>
+<div class="container-fluid">
+  <p class="h1">{{title}}</p>
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" *ngFor="let level of levels">
+          <a routerLink="{{level.route}}" routerLinkActive="active" class="nav-link">
+            {{level.label}}
+          </a>
+        </li>
+      </ul>
+  <router-outlet></router-outlet>
+</div>

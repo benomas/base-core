@@ -1,27 +1,22 @@
-<p>
-  <label>
-    Objeto a llamar
-  </label>
-  <input #apiObject id="api-object" />
-  <label>
-    Acción a llamar
-  </label>
-  <input #apiAction id="api-action" />
-  <label>
-    Parametro de llamada
-  </label>
-  <input #apiParam id="api-param" />
-  <button style="background-color:#336699; color:#FFFFFF;" (click)="callApi(apiObject.value,apiAction.value,apiParam.value)">
-    <b>
-      LLamar api
-    </b>
-  </button>
-</p>
-<div>
-  <label *ngIf="apiResponse">
-    Respuesta de api:
-  </label>
-  <b *ngIf="apiResponse">
-      {{apiResponse}}
-  </b>
-<div>
+<div class="form-group">
+    <label for="object">Primer segmento</label>
+    <input  #apiObject id="api-object" class="form-control"  placeholder="Objeto">
+</div>
+<div class="form-group">
+    <label for="action">Segundo segmento</label>
+    <input  #apiAction id="api-action" class="form-control"  placeholder="Acción">
+</div>
+<div class="form-group">
+    <label for="param">Tercer segmento</label>
+    <input  #apiParam id="api-param" class="form-control"  placeholder="Parametro">
+</div>
+<div class="alert alert-info" role="alert">
+  <strong>Ejemplo de url de api:</strong> raiz/api/objeto/accion/parametro
+</div>
+<button class="btn btn-outline-success" (click)="callApi(apiObject.value,apiAction.value,apiParam.value)">
+    LLamar api
+</button>
+<div class="alert alert-success" role="alert" *ngIf="apiResponse">
+  <h4 class="alert-heading">Respuesta de api:</h4>
+  <p><b>{{apiResponse}}</b></p>
+</div>
