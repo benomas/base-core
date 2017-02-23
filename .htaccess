@@ -1,11 +1,24 @@
 <IfModule mod_rewrite.c>
     RewriteEngine on
 
-    #file request to backend
+    #file request to back-end
         RewriteRule ^file/(.*)$ back-end/public/files/$1 [L,NS]
 
-    #api request to backend
+    #oauth request to back-end
+        RewriteRule ^oauth$ back-end/public/oauth [L,NS]
+        RewriteRule ^oauth/(.*)$ back-end/public/oauth/$1 [L,NS]
+
+    #api request to back-end
+        RewriteRule ^api$ back-end/public/api [L,NS]
         RewriteRule ^api/(.*)$ back-end/public/api/$1 [L,NS]
+
+    #web request to back-end
+        RewriteRule ^web$ back-end/public/ [L,NS]
+        RewriteRule ^web/(.*)$ back-end/public/$1 [L,NS]
+
+    #web-file request to back-end
+        RewriteRule ^web-file$ back-end/public/ [L,NS]
+        RewriteRule ^web-file/(.*)$ back-end/public/$1 [L,NS]
 
     #empty request to front-end  (home)
         RewriteRule ^$ front-end/ [L,NS]

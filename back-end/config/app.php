@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Laravel API',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,6 +167,10 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        Joselfonseca\LaravelApiTools\Providers\LaravelApiToolsServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
+        Joselfonseca\LaravelTactician\Providers\LaravelTacticianServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -225,7 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Uuid' => Webpatser\Uuid\Uuid::class,
     ],
 
 ];

@@ -34,6 +34,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->redirectTo = getPrefix(config('custom.web_route')).$this->redirectTo;
         $this->middleware('guest', ['except' => 'logout']);
     }
 }

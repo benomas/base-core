@@ -1,16 +1,17 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-//dd(\Request::segment(1));
-Route::get('test', function () {
-    return view('welcome');
+
+Route::get('/', function(){
+    return redirect(getPrefix(config('custom.web_route')).'/login');
 });
+
+Route::get('apidocs', function(){
+    // aglio -i docs/api/blueprint/apidocs.apib --theme-variables Flatly --theme-template triple -o resources/views/apidocs.blade.php
+    return view('apidocs');
+});
+
+Auth::routes();
+
+	//dd(getNavPrefix(2).config('custom.web_route').'/home');
+Route::get('home', 'HomeController@index');
+

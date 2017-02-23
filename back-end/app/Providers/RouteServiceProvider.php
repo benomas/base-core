@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Request;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,8 +24,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
@@ -35,11 +34,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
-
-        $this->mapWebRoutes();
-
-        //
+        $this->mapApiRoutes(getPrefix(config('custom.api_route')));
+        $this->mapWebRoutes(getPrefix(config('custom.web_route')));
     }
 
     /**
@@ -49,15 +45,13 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapWebRoutes()
+    protected function mapWebRoutes($prefix='')
     {
-        //\Request::segment(1).
-        Route::prefix('/web')
+        Route::prefix($prefix)
              ->middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
     }
-
     /**
      * Define the "api" routes for the application.
      *
@@ -65,16 +59,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapApiRoutes()
+    protected function mapApiRoutes($prefix='')
     {
-        //hack for work relative to path
-        if(\Request::segment(1)==="base-core" && \Request::segment(2)==='api'){
-            Route::prefix('base-core/api')
-                 ->middleware('api')
-                 ->namespace($this->namespace)
-                 ->group(base_path('routes/api.php'));
-        }
-        Route::prefix('/api')
+        Route::prefix($prefix)
                  ->middleware('api')
                  ->namespace($this->namespace)
                  ->group(base_path('routes/api.php'));

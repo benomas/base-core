@@ -1,40 +1,78 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+## Laravel API Starter Kit
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+[![Build Status](https://travis-ci.org/joselfonseca/laravel-api.svg)](https://travis-ci.org/joselfonseca/laravel-api)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-## About Laravel
+Laravel API starter Kit will provide you with the tools for making API's that everyone will love, API Authentication is already provided with passport. We brought the power of the [Tactician Command bus](http://tactician.thephpleague.com/) to laravel in a simple package [https://github.com/joselfonseca/laravel-tactician](https://github.com/joselfonseca/laravel-tactician) created and maintained by [Jose Fonseca](https://github.com/joselfonseca). 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+Here is a list of the packages installed:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Laravel Tactician Command Bus](https://github.com/joselfonseca/laravel-tactician)
+- [Laravel API Tools](https://github.com/joselfonseca/laravel-api-tools)
+- [Laravel Passport](https://laravel.com/docs/5.4/passport)
+- [Laravel Permission](https://github.com/spatie/laravel-permission)
+- [Laravel Uuid](https://github.com/webpatser/laravel-uuid)
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+## Installation
 
-## Learning Laravel
+To install the project you can use composer
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+```bash
+composer create-project joselfonseca/laravel-api new-api
+```
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+You may receive an error about the key files after the installation, that is OK. To fix it run the following in the project's root
 
-## Contributing
+```
+touch storage/oauth-private.key
+touch storage/oauth-public.key
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Then run `composer install` again and the error should be gone.
 
-## Security Vulnerabilities
+Modify the .env file to suit your needs
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```
+APP_ENV=local
+APP_DEBUG=true
+APP_KEY=base64:JqyMTmt5qr1CW6BH+GG+4iKfU4RiNjZTLy33TdTT7+4=
+
+DB_HOST=localhost
+DB_DATABASE=laravel_api
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+MAIL_DRIVER=smtp
+MAIL_HOST=mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+```
+
+When you have the .env with your database connection set up you can run your migrations
+
+```bash
+php artisan migrate
+```
+Then run `php artisan passport:install`
+
+Run `php artisan app:install` and fill out the information of the admin user.
+
+Run `yarn install` to install node dependencies
+
+Run `npm run dev` to compile the CSS and JS
+
+You should be done with the basic configuration.
+
+## Tests
+
+Navigate to the project root and run `vendor/bin/phpunit` after installing all the composer dependencies and after the .env file was created.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The Laravel API Starter kit is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

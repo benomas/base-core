@@ -2,23 +2,25 @@
 
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-
-Route::get('{object}/{action}/{param}',function($object,$action,$param){
-    return json_encode(["object"=>$object,"action"=>$action,"param"=>$param,"status"=>"success"]);
-     return "ok";
+Route::get('ping', function(){
+    return [
+        'status' => 'ok',
+        'timestamp' => \Carbon\Carbon::now()
+    ];
 });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::resource('users', 'Users\UsersController');
+});
+
+
+Route::get('/redirect', function () {
+    $query = http_build_query([
+        'client_id' => '2',
+        'redirect_uri' => 'http://base-core.dev:705/web',
+        'response_type' => 'token',
+        'scope' => '*',
+    ]);
+
+    return redirect('http://base-core.dev:705/oauth/authorize?'.$query);
 });
